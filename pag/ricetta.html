@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGRC | Ricetta </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- link css -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="overflow-x-hidden">
+
+    <header>
+        <!-- Navigation -->
+        <div class="container-xl mx-auto py-4">
+            <div class="bg-dark rounded-3 position-relative">
+                <nav class="navbar navbar-expand-lg bg-body-primary">
+                    <button class="navbar-toggler bg-white ms-auto me-3" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav row align-items-center w-100 m-0">
+                            <div
+                                class="col d-lg-flex justify-content-start align-items-center text-lg-center gap-4 my-3 me-5">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white text-uppercase fs-6" href="../index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white text-uppercase fs-6"
+                                        href="../pag/ricerca.html">recipes</a>
+                                </li>
+                                <li class="loggato d-none nav-item">
+                                    <a class="nav-link text-white text-uppercase fs-6" href="../pag/account.html">My
+                                        cookbook</a>
+                                </li>
+                            </div>
+                            <div class="col d-lg-flex justify-content-end gap-4 my-3 ms-lg-5 me-5 me-lg-0">
+                                <li class="nav-item">
+                                    <form class="d-flex" role="search" action="../pag/ricerca.html">
+                                        <input class="form-control me-2 w-auto focus-ring focus-ring-light"
+                                            type="search" name="search" id="search" placeholder="Search"
+                                            aria-label="Search">
+                                        <button class="btn btn-outline-light me-2" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-search" viewBox="0 0 20 20">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                            </svg>
+                                        </button>
+                                        <a class="loggato d-none btn btn-outline-light" href="../pag/account.html">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-person" viewBox="0 0 20 20">
+                                                <path
+                                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                            </svg>
+                                        </a>
+
+                                        <a class="non-loggato btn btn-light me-2" data-bs-toggle="modal"
+                                            data-bs-target="#login">
+                                            Log In
+                                        </a>
+
+                                        <a class="non-loggato btn btn-outline-light" data-bs-toggle="modal"
+                                            data-bs-target="#new-account"> New Account
+                                        </a>
+                                    </form>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="d-flex position-absolute logo">
+                    <a href="../index.html" class="color-first p-3" style="border-radius: 100%;">
+                        <img src="../img/logo.png" alt="PGRC" width="80" height="80">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <section class="container-xxl mx-auto mt-5 fit-content">
+        <div class="bg-light p-3 rounded-5 shadow">
+            <div class="container d-flex justify-content-center">
+                <div class="row">
+                    <!-- Nome Ricetta-->
+                    <div class="row mb-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col d-flex align-items-center">
+                                    <div class="container ms-2">
+                                        <h3 id="recipe_title" class="card-title text-uppercase fs-1 fw-bold m-0 ">
+                                            Strawberries Romanoff
+
+                                        </h3>
+                                        <h4 id="recipe_info" class=" fs-5 fw-medium ms-1">
+                                            wdq
+                                        </h4>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-2 d-flex justify-content-end align-items-center">
+                                    <a class=" btn btn-outline-dark card-save" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16" data-bs-toggle="modal"
+                                            data-bs-target="#recipe-note" >
+                                            <path
+                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
+                                        </svg>
+                                   
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" class="bi bi-suit-heart-fill d-none" viewBox="0 0 16 16" onclick="remToCookbook(getURLParam('id')); location.reload()" >
+                                            <path
+                                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                                        </svg>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Procedimento e Immagine -->
+                    <div class="row mb-3">
+                        <!-- Procedimento e Ingredienti -->
+                        <div class="col-lg-8 row pe-lg-2">
+                            <div class="col-3 d-none d-md-block">
+                                <div id="list-example" class="list-group">
+                                    <a class="list-group-item list-group-item-action list-group-item-secondary"
+                                        href="#procedimento">Preparation</a>
+                                    <a class="list-group-item list-group-item-action list-group-item-secondary"
+                                        href="#ingredienti">Ingredients</a>
+                                </div>
+                            </div>
+                            <div class="col col-md-9">
+                                <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+                                    class="scrollspy-example overflow-y-auto" style="height: 450px" tabindex="0">
+                                    <h4 id="procedimento">Preparation</h4>
+                                    <p id="recipe_instructions">
+                                        In a large bowl, whisk together 1/2 cup buckwheat flour, 2/3 cup all-purpose
+                                        flour, 1/2 teaspoon salt, and 1 teaspoon yeast.
+                                        Make a well in the center and pour in 1 cup warm milk, whisking until the
+                                        batter is smooth.
+                                        Cover the bowl and let the batter rise until doubled, about 1 hour.
+                                        Enrich and Rest the Batter Stir 2 tablespoons melted butter and 1 egg yolk
+                                        into the batter.
+                                        In a separate bowl, whisk 1 egg white until stiff, but not dry.
+                                        Fold the whisked egg white into the batter.
+                                        Cover the bowl and let the batter stand 20 minutes.
+                                        Pan-Fry the Blini Heat butter in a large nonstick skillet over medium heat.
+                                        Drop quarter-sized dollops of batter into the pan, being careful not to
+                                        overcrowd the pan.
+                                        Cook for about 1 minute or until bubbles form.
+                                        Turn and cook for about 30 additional seconds.
+                                        Remove the finished blini onto a plate and cover them with a clean kitchen
+                                        towel to keep warm.
+                                        Add more butter to the pan and repeat the frying process with the remaining
+                                        batter.
+                                    </p>
+                                    <h4 id="ingredienti">Ingredients</h4>
+                                    <div class="row text-center w-100 justify-content-center">
+                                        <!-- Ingredient -->
+                                        <template id="recipe_ingredient">
+
+                                            <div
+                                                class="col flex-nowrap d-flex align-items-center justify-content-center">
+                                                <a href="#"
+                                                    class="ingredient_link d-flex align-items-center justify-content-center">
+                                                    <img class="ingredient_img" src="" alt="" width="65px">
+                                                    <h5 class="ingredient_name">1 lime</h5>
+                                                </a>
+                                            </div>
+
+
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Immagine -->
+                        <div class="col-lg-4">
+                            <div class="row mb-3">
+                                <img id="recipe_img" src="#" class="img-fluid rounded border border-black border-2 p-0"
+                                    alt="...">
+                            </div>
+                            <div class="row">
+                                <!-- Difficoltà -->
+                                <div class="col-6 mx-auto fit-content">
+                                    <label for="difficoltà"
+                                        class="form-label text-uppercase fw-medium">Difficulty</label>
+                                    <div class="container d-flex" id="difficoltà">
+                                        <h3 id="diff_text" class="fw-medium fs-4 me-3">3.5</h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red"
+                                            class="bi bi-cup-hot-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6zM13 12.5a2 2 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5" />
+                                            <path
+                                                d="m4.4.8-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 3.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 4.4.8m3 0-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 6.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 7.4.8m3 0-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.252.382l-.019.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 9.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 10.4.8" />
+                                        </svg>
+
+                                    </div>
+                                </div>
+                                <!-- Gusto -->
+                                <div class="col-6 mx-auto fit-content">
+                                    <label for="gusto" class="form-label text-uppercase fw-medium">Taste</label>
+                                    <div class="container d-flex" id="gusto">
+                                        <h3 id="taste_text" class="fw-medium fs-4 me-3">3.5</h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="yellow"
+                                            class="bi bi-star-fill" viewBox="0 0 16 16" stroke="#222222">
+                                            <path
+                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="container-xxl my-3 d-flex justify-content-center">
+        <div class="bg-light p-3 rounded-5 shadow fit-content">
+            <div class="container d-flex align-items-center ">
+                <div class="row justify-content-center">
+                    <!-- Recensioni - Title -->
+                    <div class="d-flex justify-content-between mb-3">
+                        <h2 class="text-uppercase fw-bold fs-3 mb-0 ms-2">reviews</h2>
+                        <a class=" btn btn-md btn-outline-dark py-2 card-review" href="#" data-bs-toggle="modal"
+                            data-bs-target="#recipe-review">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                            </svg>
+                        </a>
+
+                    </div>
+                    <!-- Recensioni -->
+                    <div class="zero_recensioni text-center fs-3">
+
+                        There are no reviews for this recipe
+                    </div>
+
+                    <template id="template_review">
+                        <div class="card my-2" style="max-width: 50rem;">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col text-uppercase user_review">
+                                        Sara Buzzi
+                                    </div>
+                                    <div class="col d-flex justify-content-end data_review">
+                                        15/02/2024
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex gap-1 align-items-start justify-content-between">
+                                    <div>
+                                        <h5 class="card-title title_review">Special title
+                                            treatment</h5>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn btn-outline-dark review-card-delete" data-bs-toggle="modal"
+                                            data-bs-target="#delete-review" data-recipe="" data-date="" data-text=""
+                                            onclick="event.preventDefault(); remReview(this.getAttribute('data-recipe'), this.getAttribute('data-date'), this.getAttribute('data-text'))">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex gap-1 justify-content-between align-items-center">
+                                    <div class="">
+                                        <p class="card-text text_review">
+                                            With supporting text below as a natural
+                                            lead-in to
+                                            additional
+                                            content.</p>
+                                    </div>
+                                    <div class="mt-1">
+                                        <div class="row">
+                                            <label for="difficoltà" class="form-label">Difficulty</label>
+                                        </div>
+                                        <div class="d-flex justify-content-start difficoltà_recensioni gap-1">
+
+                                        </div>
+                                        <div class="row mt-2">
+                                            <label for="gusto" class="form-label">Taste</label>
+                                        </div>
+                                        <div class="d-flex justify-content-start gusto_recensioni gap-1">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="reviews">
+
+        </div>
+
+        <template id="t_diff">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-cup-hot-fill"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6zM13 12.5a2 2 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5" />
+                <path
+                    d="m4.4.8-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 3.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 4.4.8m3 0-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 6.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 7.4.8m3 0-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.252.382l-.019.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 9.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 10.4.8" />
+            </svg>
+        </template>
+        <template id="t_gusto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#CCCC00" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>
+        </template>
+
+    </section>
+
+
+
+
+    <!-- Modal recipe review -->
+    <div class="modal fade" id="recipe-review" tabindex="-1" aria-labelledby="recipe-review" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-body-dark">
+                    <h3 class="modal-title fs-3 fw-medium loggato d-none">Leave your review!</h3>
+                    <h3 class="modal-title fs-4 fw-medium non-loggato">Log in to write a review!</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="return controllaERegistraRecensione(this)">
+            
+                        <div class="form-floating">
+                            <textarea name="review-text" class="form-control focus-ring focus-ring-green"
+                                placeholder="Scrivi la tua nota" id="review-text" style="height: 100px" maxlength="100"
+                                oninput="controllaCampo(this)" required></textarea>
+                            <label for="review-text">Write your review here...</label>
+                        </div>
+                        <div class="row mt-3 mx-1 gap-2 justify-content-center">
+                            <div class="col-5 border">
+                                <div class="col-6 fw-bold">
+                                    Difficulty
+                                </div>
+                                <div class="col">
+                                    <input name="difficolta" type="range" class="form-range" min="1" max="5" step="1"
+                                        value="3" id="difficolta" oninput="controllaCampo(this)" required>
+                                    <div class="d-flex justify-content-between fs-4">
+                                        <div> 1 </div>
+                                        <div> 2 </div>
+                                        <div> 3 </div>
+                                        <div> 4 </div>
+                                        <div> 5 </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5 border">
+                                <div class="col-6 fw-bold">
+                                    Taste
+                                </div>
+                                <div class="col">
+                                    <input name="gusto" type="range" class="form-range" min="1" max="5" step="1"
+                                        value="3" id="gusto" oninput="controllaCampo(this)" required>
+                                    <div class="d-flex justify-content-between fs-4">
+                                        <div> 1 </div>
+                                        <div> 2 </div>
+                                        <div> 3 </div>
+                                        <div> 4 </div>
+                                        <div> 5 </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3 ">
+                            <label for="preparation-date" class="form-label fw-bold ">Date of Preparation</label>
+                            <input name="preparation-date" id="preparation-date"
+                                class="form-control focus-ring focus-ring-green" value="" type="date"
+                                oninput="controllaData(this)" required>
+                        </div>
+
+                        <div class=" d-flex justify-content-end mt-4">
+                            <button type="submit" class="save-review btn btn-dark loggato d-none">Publish</button>
+                            <button class="save-review btn btn-dark non-loggato" data-bs-dismiss="modal"
+                                aria-label="Close" disabled>Publish</button>
+
+                        </div>
+
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Modal login-->
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-body-dark">
+                    <h1 class="modal-title fs-2 fw-medium">It's nice to see you again!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container d-flex justify-content-center align-items-center">
+
+                        <form onsubmit="return controllaELogin(this)">
+                            <div class="row py-3 align-items-center">
+                                <div class="col-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-person-fill" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                    </svg>
+                                </div>
+                                <div class="col">
+                                    <input name="email" id="email-utente"
+                                        class="form-control focus-ring focus-ring-green" type="email"
+                                        placeholder="Insert your e-mail">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-lock-fill" viewBox="0 0 20 20">
+                                        <path
+                                            d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
+                                    </svg>
+                                </div>
+                                <div class="col mb-2">
+                                    <div class="row">
+                                        <div class="col pe-1">
+                                            <input class="form-control focus-ring focus-ring-green password"
+                                                type="password" value="" name="password"
+                                                placeholder="Insert your password">
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-end align-items-center ">
+                                            <button type="button" class="btn btn-light border"
+                                                onclick="mostraPassword(this)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                                    <path
+                                                        d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                                                </svg>
+                                                <svg class="d-none" xmlns="http://www.w3.org/2000/svg" width="16"
+                                                    height="16" fill="currentColor" class="bi bi-eye-slash"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                                                    <path
+                                                        d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                                                    <path
+                                                        d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class=" mt-2 d-block text-danger text-center login-errato d-none">
+                                        Invalid email or password
+                                    </div>
+                                    <!-- <div class="pass"><a href="#" class="link-dark fs-sm text-decoration-underline">Have
+                                            you forgot your password?</a>
+                                    </div> -->
+                                </div>
+
+                            </div>
+                            <div class="row button mx-auto mt-2 fit-content">
+                                <button type="submit" class="btn btn-dark">Login</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="">Not registered? <a href="#" class="link-success text-decoration-underline"
+                            data-bs-toggle="modal" data-bs-target="#new-account">Create an account!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal new account -->
+    <div class="modal fade" id="new-account" tabindex="-1" aria-labelledby="new-account" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-body-dark">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="return controllaERegistraUtente(this);" name="registration_form">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail address</label>
+                            <input name="email" id="email" class="form-control focus-ring focus-ring-green" type="email"
+                                oninput="controllaValiditaEUnicita(this)" required>
+                            <div class="invalid-feedback">
+                                Email not valid
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label for="password" class="form-label">Password</label>
+                                <input name="password" id="password"
+                                    class="form-control focus-ring focus-ring-green password" type="password" value=""
+                                    oninput="controllaCampo(this)" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                                    aria-describedby="password-info">
+                                <div class="invalid-feedback">
+                                    The password does not meet the requirements
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <label for="password2" class="form-label">Confirm password</label>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input id="password2" class="form-control focus-ring focus-ring-green password"
+                                            oninput="controllaUguaglianzaPassword(document.querySelector('#password'), this)"
+                                            type="password" value="">
+                                        <div class="invalid-feedback">
+                                            The passwords are different
+                                        </div>
+                                    </div>
+                                    <div class="col-2 ms-1 d-flex justify-content-end align-items-center ">
+                                        <button type="button" class="btn btn-light border"
+                                            onclick="mostraPassword(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                                <path
+                                                    d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                                            </svg>
+                                            <svg class="d-none" xmlns="http://www.w3.org/2000/svg" width="16"
+                                                height="16" fill="currentColor" class="bi bi-eye-slash"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                                                <path
+                                                    d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                                                <path
+                                                    d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div id="password-info" class="form-text">
+                                The password must be above 8 characters and it must contain a letter and a number
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-3">
+                                <label for="nome" class="form-label">First name</label>
+                                <input name="nome" id="nome" class="form-control focus-ring focus-ring-green"
+                                    type="text" value="" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$"
+                                    required>
+                            </div>
+                            <div class="col-md-6 col-12 mb-3">
+
+                                <label for="lname" class="form-label">Last name</label>
+                                <input name="lname" id="lname" class="form-control focus-ring focus-ring-green"
+                                    type="text" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-3">
+                                <label for="gender" class="form-label">Sex</label>
+                                <select name="gender" id="gender" class="form-control focus-ring focus-ring-green">
+                                    <option>M</option>
+                                    <option>W</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-12 mb-3">
+                                <label for="date" class="form-label">Date of Birth</label>
+                                <input name="date" id="birthdate" class="form-control focus-ring focus-ring-green "
+                                    type="date" oninput="controllaData(this)" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input " id="checkbox" required>
+                            <label class="form-check-label" for="checkbox">I accept terms of use and privacy
+                                policy</label>
+                        </div>
+                        <div class=" d-flex justify-content-end">
+                            <button type="reset" class="btn btn-outline-dark me-2">Cancel</button>
+
+                            <button type="submit" class="btn btn-dark">Sign in</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="">Already have an account? <a href="#" class="link-success text-decoration-underline"
+                            data-bs-toggle="modal" data-bs-target="#login">Login now!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal recipe note -->
+    <div class="modal fade" id="recipe-note" tabindex="-1" aria-labelledby="recipe-note" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-body-dark">
+                    <h3 class="modal-title fs-4 fw-medium non-loggato">Log in to save your favourite recipes!</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    <div class="form-floating ">
+                        <textarea class="form-control" placeholder="Scrivi la tua nota" id="note-text"
+                            style="height: 100px"></textarea>
+                        <label for="note-text">Leave here a comment for this recipe...</label>
+                    </div>
+
+                    <div class=" d-flex justify-content-end mt-4">
+                        <button type="submit" class="save-recipe btn btn-dark loggato d-none" onclick="saveRecipe(this)"
+                            data-bs-dismiss="modal" aria-label="Close">Add to your cookbook</button>
+                        <button type="submit" class="save-recipe btn btn-dark non-loggato " data-bs-dismiss="modal"
+                            aria-label="Close" disabled>Add to your cookbook</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- link javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/form.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/script.js"></script>
+    <script type="module">
+
+
+        let id = getURLParam("id")
+        let utente_loggato = getUtenteLoggato()
+
+
+        let dati = await getById(id);
+        document.querySelector("#recipe_title").textContent = dati.strMeal;
+        document.querySelector("#recipe_img").src = dati.strMealThumb;
+        document.querySelector("#recipe_instructions").textContent = dati.strInstructions;
+        document.querySelector("#recipe_info").textContent = dati.strCategory + " | " + dati.strArea
+        document.querySelector(".bi-suit-heart").setAttribute("data-recipe", dati.idMeal)
+
+        let recipe_stats = getRecipeReviewStats(id)
+
+        document.querySelector("#diff_text").textContent = recipe_stats.difficulty;
+        document.querySelector("#taste_text").textContent = recipe_stats.taste;
+
+        let template_ingrediente = document.querySelector("#recipe_ingredient");
+
+        for (let i = 1; i <= 20 && dati["strIngredient" + i]; i++) {
+            let ingrediente = template_ingrediente.content.cloneNode(true);
+            ingrediente.querySelector(".ingredient_img").src = "https://www.themealdb.com/images/ingredients/" + dati["strIngredient" + i] + "-Small.png";
+            ingrediente.querySelector(".ingredient_name").textContent = dati["strMeasure" + i] + " " + dati["strIngredient" + i];
+            ingrediente.querySelector(".ingredient_link").href = "../pag/ricerca.html?ingrediente=" + dati["strIngredient" + i];
+            template_ingrediente.parentElement.appendChild(ingrediente);
+        }
+
+        if (utente_loggato.cookbook.filter((el) => el.id == id).length >= 1) {
+            document.querySelector(".bi-suit-heart-fill").classList.remove("d-none")
+            document.querySelector(".bi-suit-heart").classList.add("d-none")
+        }
+
+
+
+        //recensioni
+
+        let reviews = getReviewsById(id);
+
+        if (reviews && reviews.length > 0) {
+            document.querySelector(".zero_recensioni").classList.add("d-none");
+            let t_review = document.querySelector("#template_review");
+
+            let t_diff = document.querySelector("#t_diff")
+
+            let t_taste = document.querySelector("#t_gusto")
+
+
+            for (let review of reviews) {
+                let review_card = t_review.content.cloneNode(true);
+                review_card.querySelector(".user_review").textContent = getNomeCognome(review.utente);
+                review_card.querySelector(".data_review").textContent = review.date;
+                review_card.querySelector(".title_review").textContent = dati.strMeal; //uso i dati di sopra
+                review_card.querySelector(".text_review").textContent = review.text;
+                review_card.querySelector(".review-card-delete").setAttribute("data-recipe", dati.idMeal);
+                review_card.querySelector(".review-card-delete").setAttribute("data-date", review.date);
+                review_card.querySelector(".review-card-delete").setAttribute("data-text", review.text);
+
+
+                if (utente_loggato.email == review.utente) {
+                    review_card.querySelector("*").toggleAttribute("data-user");
+                }
+
+
+
+                for (let i = 1; i <= 5; i++) {
+                    let icon_d = t_diff.content.cloneNode(true);
+                    if (i <= review.difficulty) {
+                        review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)
+                    } else {
+                        icon_d.querySelector("svg").setAttribute("fill", "currentColor")
+                        review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)
+                    }
+                }
+                for (let j = 1; j <= 5; j++) {
+                    let icon_t = t_taste.content.cloneNode(true);
+                    if (j <= review.taste) {
+                        review_card.querySelector(".gusto_recensioni").appendChild(icon_t)
+
+                    } else {
+                        icon_t.querySelector("svg").setAttribute("fill", "currentColor")
+
+                        review_card.querySelector(".gusto_recensioni").appendChild(icon_t)
+                    }
+                }
+
+
+                t_review.parentElement.appendChild(review_card)
+
+            }
+        }
+
+
+
+
+        let scroll_to_reviews = getURLParam("reviews");
+        if (scroll_to_reviews) {
+
+            document.querySelector(".reviews").scrollIntoView({
+                behavior: 'smooth' //smooth scroll
+            })
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

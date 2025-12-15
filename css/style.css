@@ -1,0 +1,228 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: rgba(175, 218, 92, 0.5);
+}
+
+header {
+    background-image: url("../img/sfondo.png");
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.fit-content {
+    width: fit-content;
+}
+
+.logo {
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, -10%);
+}
+
+@media (max-width: 992px) {
+    .logo {
+    transform: translate(-50%, -20%);
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+.color-first {
+    background-color: #afda5c;
+}
+
+
+.color-second {
+    color: #f2e9e3;
+}
+
+.focus-ring-green {
+    --bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);             
+}
+
+.nav-pills-green {
+    --bs-nav-pills-link-active-bg: rgba(var(--bs-success-rgb), .25);
+    --bs-nav-pills-link-active-color: black;
+}
+
+.nav-link-dark {
+    --bs-nav-link-color: black;
+    --bs-nav-link-hover-color: black;
+}
+
+
+.form-check-input:checked {
+    background-color: #198754;
+    border-color: #198754 ;
+}
+
+
+
+/* Slider */
+
+.slider button.next,
+.slider button.previous {
+    background-color: white;
+    border: 3px solid #afda5c;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    transition: all 200ms ease-in-out;
+    transition-property: width, height;
+}
+
+.slider button.next:hover,
+.slider button.previous:hover {
+    background-color: #afda5c;
+}
+
+.slider button.next:disabled,
+.slider button.previous:disabled {
+    border: none;
+    width: 35px;
+    height: 35px;
+}
+
+.sliding-window {
+    transition: transform 250ms ease-in-out;
+}
+
+.sliding-container {
+    max-width: 15rem; /* 1 Card */
+}
+
+@media (min-width: 768px) {
+
+    .sliding-container {
+        max-width: 31rem; /* 2 Card */
+    }
+}
+
+@media (min-width: 992px) {
+
+    .sliding-container {
+        max-width: 47rem; /* 3 Card */
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .sliding-container {
+        max-width: 63rem; /* 4 Card */
+    }
+}
+
+
+.cards8 {
+    min-width: 15rem; /* 2 Card */
+    grid-template-columns: repeat(1, auto)
+}
+
+@media (min-width: 768px) {
+
+    .cards8 {
+        min-width: 31rem; /* 3 Card */
+        grid-template-columns: repeat(2, auto)
+    }
+}
+
+@media (min-width: 992px) {
+
+    .cards8 {
+        min-width: 47rem; /* 4 Card */
+        grid-template-columns: repeat(3, auto)
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .cards8 {
+        min-width: 63rem; /* 3 Card */
+        grid-template-columns: repeat(4, auto)
+    }
+}
+
+.cards8 {
+    position: relative;
+    display: grid;
+}
+
+.cards8 .category-name {
+    position: absolute;
+    top: 1.8rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    padding: 0.4rem 0.7rem;
+    background-color: #afda5c;
+    border-radius: 0.5rem;
+    z-index: 99;
+    text-transform: uppercase;
+}
+
+.cards8 .area-name {
+    position: absolute;
+    top: 1.8rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    padding: 0.4rem 0.7rem;
+    background-color: #afda5c;
+    border-radius: 0.5rem;
+    z-index: 99;
+    text-transform: uppercase;
+}
+
+
+.sliding-window:has(> .cards_container:nth-of-type(2)) > * > .if-empty-only{
+    display: none !important;
+}
+
+.card .bi-suit-heart-fill {
+    display: none;
+}
+
+.card[data-saved] .bi-suit-heart-fill {
+    display: block;
+}
+
+.card[data-saved] .bi-suit-heart {
+    display: none;
+}
+
+
+
+.card .review-card-delete {
+    display: none;
+}
+
+.card[data-user] .review-card-delete {
+    display: block;
+}
+
+
+textarea.cookbook-card-text[disabled] + button>.bi-check-square {
+    display: none;
+}
+
+textarea.cookbook-card-text[disabled] + button>.bi-pencil-square {
+    display: block;
+}
+
+/* in realtà è il comportamento di default */
+textarea.cookbook-card-text + button>.bi-check-square {
+    display: block;
+}
+
+textarea.cookbook-card-text + button>.bi-pencil-square {
+    display: none;
+}
+

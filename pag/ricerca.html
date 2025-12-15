@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title text-uppercase>PGRC</title text-uppercase>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- link css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="overflow-x-hidden">
+
+    <header>
+
+        <!-- Navigation -->
+        <div class="container-xl mx-auto py-4">
+            <div class="bg-dark rounded-3 position-relative">
+                <nav class="navbar navbar-expand-lg bg-body-primary">
+                    <button class="navbar-toggler bg-white ms-auto me-3" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav row align-items-center w-100 m-0">
+                            <div
+                                class="col d-lg-flex justify-content-start align-items-center text-lg-center gap-4 my-3 me-5">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white text-uppercase fs-6" href="../index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white text-uppercase fs-6" href="#">recipes</a>
+                                </li>
+                                <li class="loggato d-none nav-item">
+                                    <a class="nav-link text-white text-uppercase fs-6" href="../pag/account.html">my
+                                        cookbook</a>
+                                </li>
+                            </div>
+                            <div class="col d-lg-flex justify-content-end gap-4 my-3 ms-lg-5 me-5 me-lg-0">
+                                <li class="nav-item">
+                                    <form class="d-flex" role="search" action="../pag/ricerca.html">
+                                        <input class="form-control me-2 w-auto focus-ring focus-ring-light"
+                                            type="search" name="search" id="search" placeholder="Search"
+                                            aria-label="Search">
+                                        <button class="btn btn-outline-light me-2" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-search" viewBox="0 0 20 20">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                            </svg>
+                                        </button>
+                                        <a class="loggato d-none btn btn-outline-light" href="../pag/account.html">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-person" viewBox="0 0 20 20">
+                                                <path
+                                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                            </svg>
+                                        </a>
+
+                                        <a class="non-loggato btn btn-light me-2" data-bs-toggle="modal"
+                                            data-bs-target="#login">
+                                            Log In
+                                        </a>
+
+                                        <a class="non-loggato btn btn-outline-light" data-bs-toggle="modal"
+                                            data-bs-target="#new-account"> New Account
+                                        </a>
+                                    </form>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="d-flex position-absolute logo">
+                    <a href="../index.html#" class="color-first p-3" style="border-radius: 100%;">
+                        <img src="../img/logo.png" alt="PGRC" width="80" height="80">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="container-xxl mx-auto mt-5">
+
+        <!-- Ricerca generica -->
+        <div id="ricerca" class="container-xxl d-none">
+            <div class="slider d-lg-flex flex-column justify-content-center my-5 py-3gap-4 mx-auto" id="slider1"
+                data-slider-current="0">
+
+                <!-- Intestazione -->
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div class="bg-light p-2 rounded-3 ms-4 fit-content">
+                            <h4 id="results" class="text-uppercase fs-4 fw-medium mb-0">Your results for search </h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item my-auto">
+                                <button class="previous" aria-label="Previous" data-slider-for="slider1"
+                                    onclick="previous(this)" disabled>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left"
+                                        viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                    </svg>
+                                </button>
+                            </li>
+                            <li class="page-item my-auto">
+                                <button class="next" href="#" aria-label="Next" data-slider-for="slider1"
+                                    onclick="next(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cards -->
+                <div class="sliding-container overflow-x-hidden mx-auto">
+                    <div id="risultati_ricerca" class="sliding-window d-flex gap-3" data-slider-for="slider1">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ricerca per categoria -->
+        <div class="container-xxl">
+            <div class="d-lg-flex gap-3 mt-5">
+                <div class="bg-light px-4 rounded-5 shadow">
+                    <h5 class="p-1 text-center my-3">Select a Category:</h5>
+                    <div id="categories_input" class="row flex-lg-column py-2">
+                        <template id="template_category">
+                            <div class="form-check form-switch form-check-reverse my-1 col flex-shrink-0">
+                                <input class="form-check-input focus-ring focus-ring-success" type="checkbox" id="beef"
+                                    onclick="toggleCategoryCards(this)">
+                                <label class="form-check-label text-uppercase" for="beef">Beef</label>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <div class="slider d-flex flex-column align-items-center gap-4" id="slider_categorie"
+                        data-slider-current="0">
+                        <!-- Intestazione -->
+                        <div class="d-flex w-100 justify-content-between align-items-center mb-2">
+                            <div>
+                                <h3 class="d-flex justify-content-center fw-bold pt-1 mb-0 text-uppercase">
+                                    Explore our wonderful categories!
+                                </h3>
+                            </div>
+                            <div>
+                                <ul class="pagination justify-content-end mb-0">
+                                    <li class="page-item my-auto">
+                                        <button class="previous" aria-label="Previous"
+                                            data-slider-for="slider_categorie" onclick="previous(this)" disabled>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li class="page-item my-auto">
+                                        <button class="next" href="#" aria-label="Next"
+                                            data-slider-for="slider_categorie" onclick="next(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                            </svg>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <!-- Cards -->
+                        <div class="sliding-container overflow-x-hidden">
+                            <div id="sliding_window_categorie" class="sliding-window d-flex gap-3 category"
+                                data-slider-for="slider_categorie">
+                            </div>
+                            <template id="template_8cards_category">
+                                <div class="cards_container" data-slider-scope="card">
+                                    <div class=" cards8 gap-3">
+                                        <span class="category-name">Category</span>
+                                        <!-- 8 Cards qui ... -->
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ricerca per categoria -->
+        <div class="container-xxl">
+            <div class="d-lg-flex gap-3 mt-5">
+                <div class="bg-light px-4 rounded-5 shadow">
+                    <h5 class="p-1 text-center my-3">Select an Area:</h5>
+                    <div id="areas_input" class="row flex-lg-column py-2">
+                        <template id="template_area">
+                            <div class="form-check form-switch form-check-reverse my-1 col flex-shrink-0">
+                                <input class="form-check-input focus-ring focus-ring-success" type="checkbox"
+                                    id="american" onclick="toggleAreaCards(this)">
+                                <label class="form-check-label text-uppercase" for="american">american</label>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <div class="slider d-flex flex-column align-items-center gap-4" id="slider_area"
+                        data-slider-current="0">
+                        <!-- Intestazione -->
+                        <div class="d-flex w-100 justify-content-between align-items-center mb-2">
+                            <div>
+                                <h3 class="d-flex justify-content-center fw-bold pt-1 mb-0 text-uppercase">
+                                    Explore the world through our recipes!
+                                </h3>
+                            </div>
+                            <div>
+                                <ul class="pagination justify-content-end mb-0">
+                                    <li class="page-item my-auto">
+                                        <button class="previous" aria-label="Previous" data-slider-for="slider_area"
+                                            onclick="previous(this)" disabled>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li class="page-item my-auto">
+                                        <button class="next" href="#" aria-label="Next" data-slider-for="slider_area"
+                                            onclick="next(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                            </svg>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <!-- Cards -->
+                        <div class="sliding-container overflow-x-hidden">
+                            <div id="sliding_window_area" class="sliding-window d-flex gap-3 area"
+                                data-slider-for="slider_area">
+                            </div>
+                            <template id="template_8cards_area">
+                                <div class="cards_container" data-slider-scope="card">
+                                    <div class=" cards8 gap-3">
+                                        <span class="area-name">Area</span>
+                                        <!-- 8 Cards qui ... -->
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+   
+    <!-- Modal login-->
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-body-dark">
+                    <h1 class="modal-title fs-2 fw-medium">It's nice to see you again!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container d-flex justify-content-center align-items-center">
+
+                        <form onsubmit="return controllaELogin(this)">
+                            <div class="row py-3 align-items-center">
+                                <div class="col-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-person-fill" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                    </svg>
+                                </div>
+                                <div class="col">
+                                    <input name="email" id="email-utente"
+                                        class="form-control focus-ring focus-ring-green" type="email"
+                                        placeholder="Insert your e-mail">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-lock-fill" viewBox="0 0 20 20">
+                                        <path
+                                            d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
+                                    </svg>
+                                </div>
+                                <div class="col mb-2">
+                                    <div class="row">
+                                        <div class="col pe-1">
+                                            <input class="form-control focus-ring focus-ring-green password"
+                                                type="password" value="" name="password"
+                                                placeholder="Insert your password">
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-end align-items-center ">
+                                            <button type="button" class="btn btn-light border"
+                                                onclick="mostraPassword(this)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                                    <path
+                                                        d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                                                </svg>
+                                                <svg class="d-none" xmlns="http://www.w3.org/2000/svg" width="16"
+                                                    height="16" fill="currentColor" class="bi bi-eye-slash"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                                                    <path
+                                                        d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                                                    <path
+                                                        d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class=" mt-2 d-block text-danger text-center login-errato d-none">
+                                        Invalid email or password
+                                    </div>
+                                    <!-- <div class="pass"><a href="#" class="link-dark fs-sm text-decoration-underline">Have
+                                            you forgot your password?</a>
+                                    </div> -->
+                                </div>
+
+                            </div>
+                            <div class="row button mx-auto mt-2 fit-content">
+                                <button type="submit" class="btn btn-dark">Login</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="">Not registered? <a href="#" class="link-success text-decoration-underline"
+                            data-bs-toggle="modal" data-bs-target="#new-account">Create an account!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal new account -->
+    <div class="modal fade" id="new-account" tabindex="-1" aria-labelledby="new-account" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-body-dark">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="return controllaERegistraUtente(this);" name="registration_form">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail address</label>
+                            <input name="email" id="email" class="form-control focus-ring focus-ring-green" type="email"
+                                oninput="controllaValiditaEUnicita(this)" required>
+                            <div class="invalid-feedback">
+                                Email not valid
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label for="password" class="form-label">Password</label>
+                                <input name="password" id="password"
+                                    class="form-control focus-ring focus-ring-green password" type="password" value=""
+                                    oninput="controllaCampo(this)" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                                    aria-describedby="password-info">
+                                <div class="invalid-feedback">
+                                    The password does not meet the requirements
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <label for="password2" class="form-label">Confirm password</label>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input id="password2" class="form-control focus-ring focus-ring-green password"
+                                            oninput="controllaUguaglianzaPassword(document.querySelector('#password'), this)"
+                                            type="password" value="">
+                                        <div class="invalid-feedback">
+                                            The passwords are different
+                                        </div>
+                                    </div>
+                                    <div class="col-2 ms-1 d-flex justify-content-end align-items-center ">
+                                        <button type="button" class="btn btn-light border"
+                                            onclick="mostraPassword(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                                <path
+                                                    d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                                            </svg>
+                                            <svg class="d-none" xmlns="http://www.w3.org/2000/svg" width="16"
+                                                height="16" fill="currentColor" class="bi bi-eye-slash"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                                                <path
+                                                    d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                                                <path
+                                                    d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div id="password-info" class="form-text">
+                                The password must be above 8 characters and it must contain a letter and a number
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-3">
+                                <label for="nome" class="form-label">First name</label>
+                                <input name="nome" id="nome" class="form-control focus-ring focus-ring-green"
+                                    type="text" value="" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$"
+                                    required>
+                            </div>
+                            <div class="col-md-6 col-12 mb-3">
+
+                                <label for="lname" class="form-label">Last name</label>
+                                <input name="lname" id="lname" class="form-control focus-ring focus-ring-green"
+                                    type="text" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-3">
+                                <label for="gender" class="form-label">Sex</label>
+                                <select name="gender" id="gender" class="form-control focus-ring focus-ring-green">
+                                    <option>M</option>
+                                    <option>W</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-12 mb-3">
+                                <label for="date" class="form-label">Date of Birth</label>
+                                <input name="date" id="birthdate" class="form-control focus-ring focus-ring-green "
+                                    type="date" oninput="controllaData(this)" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input " id="checkbox" required>
+                            <label class="form-check-label" for="checkbox">I accept terms of use and privacy
+                                policy</label>
+                        </div>
+                        <div class=" d-flex justify-content-end">
+                            <button type="reset" class="btn btn-outline-dark me-2">Cancel</button>
+
+                            <button type="submit" class="btn btn-dark">Sign in</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="">Already have an account? <a href="#" class="link-success text-decoration-underline"
+                            data-bs-toggle="modal" data-bs-target="#login">Login now!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal recipe note -->
+    <div class="modal fade" id="recipe-note" tabindex="-1" aria-labelledby="recipe-note" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-body-dark">
+                    <h3 class="modal-title fs-4 fw-medium non-loggato">Log in to save your favourite recipes!</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    <div class="form-floating ">
+                        <textarea class="form-control" placeholder="Scrivi la tua nota" id="note-text"
+                            style="height: 100px"></textarea>
+                        <label for="note-text">Leave here a comment for this recipe...</label>
+                    </div>
+
+                    <div class=" d-flex justify-content-end mt-4">
+                        <button type="submit" class="save-recipe btn btn-dark loggato d-none" onclick="saveRecipe(this)"
+                            data-bs-dismiss="modal" aria-label="Close">Add to your cookbook</button>
+                        <button type="submit" class="save-recipe btn btn-dark non-loggato " data-bs-dismiss="modal"
+                            aria-label="Close" disabled>Add to your cookbook</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Card Template -->
+    <template id="t-card">
+        <div class="card flex-shrink-0" style="width: 15rem;">
+            <a class="card-link" href="pag/ricetta.html?id=0">
+                <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
+                    class="card-img card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
+                    <div class="hstack gap-3 d-flex justify-content-center">
+                        <button class="card-save btn btn-outline-dark p-0"  onclick="event.preventDefault()">
+                            <div class="px-2 py-1" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                data-bs-title="Save the recipe">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-suit-heart" viewBox="0 0 16 16" data-bs-toggle="modal"
+                                    data-bs-target="#recipe-note">
+                                    <path
+                                        d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-suit-heart-fill" viewBox="0 0 16 16" onclick="remToCookbook(this.getAttribute('data-recipe'))">
+                                    <path
+                                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                                </svg>
+                            </div>
+                        </button>
+
+                        <a href="#" class="btn btn-outline-dark comment-link px-2 py-1" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" data-bs-title="See the reviews">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-chat-dots" viewBox="0 0 16 16">
+                                <path
+                                    d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                <path
+                                    d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </template>
+
+    <!-- link javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="../js/slider.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/form.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/script.js"></script>
+    <script type="module">
+
+        let category = getURLParam("category");
+        let area = getURLParam("area");
+        let ingrediente = getURLParam("ingrediente");
+        let ricerca = getURLParam("search");
+
+        if (ricerca) {
+            search(ricerca);
+            document.querySelector("#results").textContent += '"' + ricerca + '"';
+        }
+
+        if (ingrediente) {
+            document.querySelector("#ricerca").classList.remove("d-none");
+            let container = document.querySelector("#risultati_ricerca");
+            let meals = await getByIngredient(ingrediente);
+            for (let meal of meals) {
+                let card = creaCard(meal, "");
+                container.appendChild(card);
+            }
+            let ingrediente_senza_spazi = ingrediente.replace("_", " ");
+            document.querySelector("#results").textContent += '"' + ingrediente_senza_spazi + '"';
+
+        }
+
+
+        //checkbox categorie
+        let categories = await getCategories();
+        let first_category = categories[0].strCategory;
+        let template_category = document.querySelector("#template_category")
+        for (let i = 0; i < categories.length; i++) {
+            let element = categories[i];
+            let check = template_category.content.cloneNode(true);
+            check.querySelector("input").id = element.strCategory.toLowerCase();
+            check.querySelector("label").textContent = element.strCategory;
+            check.querySelector("label").setAttribute("for", element.strCategory);
+            template_category.parentElement.appendChild(check);
+        }
+
+        //Seleziona una categoria
+        if (category) {
+            document.querySelector("#" + category.toLowerCase()).click();
+        } else {
+            document.querySelector("#" + first_category.toLowerCase()).click();
+        }
+
+
+        //checkbox aree geografiche
+        let areas = await getAreas();
+        let first_area = areas[0].strArea;
+        let template_area = document.querySelector("#template_area")
+        for (let i = 0; i < areas.length; i++) {
+            let element = areas[i];
+            let check = template_area.content.cloneNode(true);
+            check.querySelector("input").id = element.strArea.toLowerCase();
+            check.querySelector("label").textContent = element.strArea;
+            check.querySelector("label").setAttribute("for", element.strArea);
+            template_area.parentElement.appendChild(check);
+        }
+
+        //Seleziona una categoria
+        if (area) {
+            document.querySelector("#" + area.toLowerCase()).click();
+        } else {
+            document.querySelector("#" + first_area.toLowerCase()).click();
+        }
+
+
+
+        //tooltip
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+    </script>
+
+
+</body>
+
+</html>
